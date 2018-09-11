@@ -56,14 +56,23 @@ class Report {
 
     private function setCellData()
     {
-        foreach($this->cellData as $columnValue=>$cellValues) {
-            foreach($cellValues['data'] as $key=>$data) {
-                $this->activeSheet->setCellValue($columnValue. $data[1], $data[0]);
+        foreach ($this->cellData as $columnValue=>$cellValues) {
+
+            if ($cellValues['width'] === 'auto') {
+                $this->activeSheet->getColumnDimension($columnValue)->setAutoSize(true);
+            } else {
+                $this->activeSheet->getColumnDimension($columnValue)->setWidth($cellValues['width']);
+            }
+
+            foreach ($cellValues['data'] as $key=>$data) {
+                $this->activeSheet->setCellValue($columnValue . $data[1], $data[0]);
+
+                if ($data[2] !== '') {
+                    $this->activeSheet->mergeCells($columnValue . $data[1] . ':' . $data[2] . $data[1]);
+                }
+
             }
         }
-        // $this->activeSheet->setCellValue('A1', 'Hello World !');
-        // $this->activeSheet->getColumnDimension($col)->setAutoSize(true); 
-        // $this->activeSheet->mergeCells('A1:C1');
     }
 
 
