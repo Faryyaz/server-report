@@ -14,7 +14,7 @@ class Report {
                 ['Bonjour,', 1, ''], // position 1( i.e. cell A1), no cell merging
                 ['Veuillez trouver ci-dessous la météo des services Total ITSM NEXT, statut à 09h.', 2, 'E'], // position 2 (A2),  merge cells A to E
                 ['Environnement PRODUCTION', 5, 'B'],
-                ['Environnement PRE-PRODUCTION', 14, 'B'],
+                ['Environnement PRE-PRODUCTION ', 14, 'B'],
                 ['Environnement INTEGRATION', 18, 'B'],
                 ['Environnement RECETTE', 22, 'B'],
                 ['Environnement DEVELOPPEMENT', 26, 'B'],
@@ -45,7 +45,7 @@ class Report {
     public function generate()
     {
         
-        $this->setCellData();
+        $this->processCellData();
         $this->writer->save('hello world.xlsx');
     }
 
@@ -54,7 +54,7 @@ class Report {
 
     }
 
-    private function setCellData()
+    private function processCellData()
     {
         foreach ($this->cellData as $columnValue=>$cellValues) {
 

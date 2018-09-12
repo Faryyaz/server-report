@@ -5,40 +5,60 @@ use Carbon\Carbon;
 
 class Period {
 
+    private static $instance = null;
+    private $dates = [];
+
+    private function __construct()
+	{
+		// Not necessary, but making this private will block all public instantiations
+    }
+    
+    public static function getInstance()
+	{
+		if (!self::$instance)
+		{
+			self::$instance = new self();
+        }
+        return self::$instance;
+	}
+
     // return of type array
     public function get() : array
     {
         $yesterday = Carbon::yesterday();
         $today = Carbon::now();
-        $dates = [];
+
+        if (!empty($this->dates)) {
+            return $this->dates;
+        }
 
         if ($today->isWeekday() && !$this->isPublicHoliday($today->toDateString())) {
 
             switch ( $today->dayOfWeek ) {
                 case Carbon::MONDAY:
-                    $dates = $this->getWeekendAndHolidayDates($today);
+                $this->dates = $this->getWeekendAndHolidayDates($today);
                 break;
 
                 case Carbon::TUESDAY:
-                    $dates = [
+                $this->dates = [
                         $yesterday->format('d/m/Y'),
                         $today->format('d/m/Y')
                     ];
 
                     if ($this->isPublicHoliday($yesterday)) {
-                        $dates = $this->getWeekendAndHolidayDates($yesterday);
+                        $this->dates = $this->getWeekendAndHolidayDates($yesterday);
                     }
 
                 break;
 
                 default:
-                    $dates = [
+                $this->dates = [
                         $yesterday->format('d/m/Y'),
                         $today->format('d/m/Y')
                     ];
 
                     if ($this->isPublicHoliday($yesterday)) {
-                        array_unshift($dates, $yesterday->subDays(1)->format('d/m/Y')); 
+                        array_unshift($this->dates, $yesterday->subDays(1)->format('d/m/Y')); 
                     }
 
                 break;
@@ -46,7 +66,7 @@ class Period {
 
         }
 
-        return $dates;
+        return $this->dates;
     }
 
     private function getWeekendAndHolidayDates($mondayDate) : array
@@ -84,5 +104,10 @@ class Period {
         //     return true;
         // }
         return false;
+    }
+
+    public function countDays() : int
+    {
+        return (count($this->get()) - 1);
     }
 }

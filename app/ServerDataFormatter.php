@@ -10,7 +10,7 @@ class ServerDataFormatter {
     public function get() : array
     {
         $server = new Server();
-        $period = new Period();
+        $period = Period::getInstance();
         
         return $this->data = [
             'prod' => [
