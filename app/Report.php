@@ -12,7 +12,7 @@ class Report {
         'A' => [
             'data' => [
                 ['Bonjour,', 1, ''], // position 1( i.e. cell A1), no cell merging
-                ['Veuillez trouver ci-dessous la météo des services Total ITSM NEXT, statut à 09h.', 2, 'D'], // position 2 (A2),  merge cells A to D
+                ['Veuillez trouver ci-dessous la météo des services Total ITSM NEXT, statut à 09h.', 2, 'E'], // position 2 (A2),  merge cells A to E
                 ['Environnement PRODUCTION', 5, 'B'],
                 ['Environnement PRE-PRODUCTION', 14, 'B'],
                 ['Environnement INTEGRATION', 18, 'B'],
