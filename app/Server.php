@@ -6,7 +6,7 @@ namespace App;
 class Server {
 
     // get data of IPLABEL
-    public function getStatus(int $monitorId, string $startDate, string $endDate)
+    public function getStatus(int $monitorId, string $startDate, string $endDate) : array
     {
         $url = env('IPLABEL_API_URL') . 'Get_KPI/';
         $username = env('IPLABEL_API_USERNAME');

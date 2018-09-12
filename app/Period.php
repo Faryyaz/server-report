@@ -74,7 +74,7 @@ class Period {
     }
 
     /**
-     * Return all dates after a weekend + public holiday
+     * Return all dates after a weekend + public holiday if consecutive
      *
      * @param [string] $mondayDate
      * @return array

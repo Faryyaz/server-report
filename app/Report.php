@@ -4,10 +4,15 @@ namespace App;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
+/**
+ * Generate the excel report
+ */
 class Report {
 
     private $activeSheet;
     private $writer;
+    private $period;
+
     private $cellData = [
         'A' => [
             'data' => [
@@ -27,12 +32,24 @@ class Report {
             ],
             'width' => 'auto'
         ],
-        // 'B' => [
-        //     'text' => [
+        'B' => [
+            'data' => [
+                ['Détails', 47, 'F'],
+                ['', 48, 'F'],
+                ['', 49, 'F'],
+                ['', 50, 'F'],
+                ['', 51, 'F'],
+                ['', 52, 'F']
+            ],
+            'width' => '22'
+        ]
+    ];
 
-        //     ],
-        //     'width' => 'auto'
-        // ]
+    /**
+     * Excel columns, use for dynamic day
+     */
+    private $cellMap = [
+        'C', 'D', 'E', 'F', 'G', 'H'
     ];
 
     public function __construct()
@@ -40,11 +57,13 @@ class Report {
         $spreadsheet = new Spreadsheet();
         $this->activeSheet = $spreadsheet->getActiveSheet();
         $this->writer = new Xlsx($spreadsheet);
+
+        $this->period = Period::getInstance();
     }
 
     public function generate()
     {
-        
+         $this->setCellData();
         $this->processCellData();
         $this->writer->save('hello world.xlsx');
     }
@@ -54,6 +73,11 @@ class Report {
 
     }
 
+    /**
+     * set values and size of excel sheet's cells
+     *
+     * @return void
+     */
     private function processCellData()
     {
         foreach ($this->cellData as $columnValue=>$cellValues) {
@@ -73,6 +97,54 @@ class Report {
 
             }
         }
+    }
+
+
+    /**
+     * Dynamically Add data the array cellData based on day's count
+     *
+     * @return array
+     */
+    private function setCellData() : array
+    {
+        $days = $this->period->getDays();
+        $count = 0;
+
+        foreach ($days as $date=>$day) {
+            $this->cellData[$this->cellMap[$count]] = [
+                'data' => [
+                    ['Statut', 5, ''],
+                    ['Statut', 14, ''],
+                    ['Statut', 18, ''],
+                    ['Statut', 22, ''],
+                    ['Statut', 26, ''],
+                    ['Statut', 30, ''],
+                    ['Statut', 34, ''],
+                    ['Statut', 38, ''],
+                    ['Statut', 42, '']
+                ],
+                'width' => '22'
+            ];
+
+            $this->cellData[$this->cellMap[$count + 1]] = [
+                'data' => [
+                    ['Notes', 5, ''],
+                    ['Notes', 14, ''],
+                    ['Notes', 18, ''],
+                    ['Notes', 22, ''],
+                    ['Notes', 26, ''],
+                    ['Notes', 30, ''],
+                    ['Notes', 34, ''],
+                    ['Notes', 38, ''],
+                    ['Notes', 42, '']
+                ],
+                'width' => '50'
+            ];
+
+            $count++;
+        }
+
+        return $this->cellData;
     }
 
 
