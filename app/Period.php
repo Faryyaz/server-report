@@ -7,7 +7,6 @@ class Period {
 
     private static $instance = null;
     private $dates = [];
-
     private function __construct()
 	{
 		// Not necessary, but making this private will block all public instantiations
@@ -72,7 +71,7 @@ class Period {
     private function getWeekendAndHolidayDates($mondayDate) : array
     {
         $dates = [];
-        // $date = Carbon::createFromFormat('Y-m-d H:i:s', $mondayDate);
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $mondayDate);
         $today = Carbon::now();
         $monday = $date->format('d/m/Y');
         $sunday = $date->subDays(1)->format('d/m/Y');
@@ -93,7 +92,7 @@ class Period {
             array_push($dates, $monday);
         }
 
-        array_push($dates, $today->toDateString());
+        array_push($dates, $today->format('d/m/Y'));
 
         return $dates;
     }
@@ -106,8 +105,14 @@ class Period {
         return false;
     }
 
-    public function countDays() : int
-    {
-        return (count($this->get()) - 1);
+    public function getDays() : array
+    {        
+        $days = [];
+        $dates = $this->get();
+        for ($i = 1; $i < count($dates); $i++) {
+            $dateFormatted = Carbon::createFromFormat('d/m/Y', $dates[$i]);
+            $days[$dates[$i]] = $dateFormatted->formatLocalized('%A');
+        }
+        return $days;
     }
 }

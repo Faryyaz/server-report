@@ -9,10 +9,10 @@ class RetrieveController extends Controller
     public function index()
     {
 
-        // $period = \App\Period::getInstance();
-        // dd($period->countDays());
+        $period = \App\Period::getInstance();
+        dd($period->getDays());
         
-        $report = new \App\Report();
-        $report->generate();
+        // $report = new \App\Report();
+        // $report->generate();
     }
 }
