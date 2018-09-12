@@ -7,6 +7,7 @@ class Period {
 
     private static $instance = null;
     private $dates = [];
+
     private function __construct()
 	{
 		// Not necessary, but making this private will block all public instantiations
@@ -21,7 +22,11 @@ class Period {
         return self::$instance;
 	}
 
-    // return of type array
+    /**
+     * Return all the date(s) based on weekend and public holidays
+     *
+     * @return array
+     */
     public function get() : array
     {
         $yesterday = Carbon::yesterday();
@@ -68,6 +73,12 @@ class Period {
         return $this->dates;
     }
 
+    /**
+     * Return all dates after a weekend + public holiday
+     *
+     * @param [string] $mondayDate
+     * @return array
+     */
     private function getWeekendAndHolidayDates($mondayDate) : array
     {
         $dates = [];
@@ -97,6 +108,12 @@ class Period {
         return $dates;
     }
 
+    /**
+     * check if given date is a public holiday
+     *
+     * @param string $date
+     * @return boolean
+     */
     private function isPublicHoliday(string $date) : bool
     {
         // if ( PublicHolidays::where('date', $date->toDateString())->exists() ) {
@@ -105,6 +122,11 @@ class Period {
         return false;
     }
 
+    /**
+     * Return all date + day as an array example ["12/09/2018" => "mercredi"]
+     *
+     * @return array
+     */
     public function getDays() : array
     {        
         $days = [];
