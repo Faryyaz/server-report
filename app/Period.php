@@ -39,7 +39,7 @@ class Period {
         if ($today->isWeekday() && !$this->isPublicHoliday($today->toDateString())) {
 
             switch ( $today->dayOfWeek ) {
-                case Carbon::MONDAY:
+                case Carbon::THURSDAY:
                 $this->dates = $this->getWeekendAndHolidayDates($today);
                 break;
 

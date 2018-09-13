@@ -18,16 +18,256 @@ class Report {
             'data' => [
                 ['Bonjour,', 1, ''], // position 1( i.e. cell A1), no cell merging
                 ['Veuillez trouver ci-dessous la météo des services Total ITSM NEXT, statut à 09h.', 2, 'E'], // position 2 (A2),  merge cells A to E
-                ['Environnement PRODUCTION', 5, 'B'],
-                ['Environnement PRE-PRODUCTION ', 14, 'B'],
-                ['Environnement INTEGRATION', 18, 'B'],
-                ['Environnement RECETTE', 22, 'B'],
-                ['Environnement DEVELOPPEMENT', 26, 'B'],
-                ['Environnement RFM', 30, 'B'],
-                ['Environnement BAC-A-SABLE', 34, 'B'],
-                ['Environnement PPM', 38, 'B'],
-                ['Environnement SAPHIR', 42, 'B'],
-                ['Incidents P1 en cours - Aucun', 46, 'F'],
+                ['Environnement PRODUCTION', 5, 'B',
+                    'style' => [ 
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
+                ['Environnement PRE-PRODUCTION ', 14, 'B',
+                    'style' => [ 
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
+                ['Environnement INTEGRATION', 18, 'B',
+                    'style' => [ 
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
+                ['Environnement RECETTE', 22, 'B',
+                    'style' => [ 
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
+                ['Environnement DEVELOPPEMENT', 26, 'B',
+                    'style' => [ 
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
+                ['Environnement RFM', 30, 'B',
+                    'style' => [ 
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
+                ['Environnement BAC-A-SABLE', 34, 'B',
+                    'style' => [ 
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
+                ['Environnement PPM', 38, 'B',
+                    'style' => [ 
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
+                ['Environnement SAPHIR', 42, 'B',
+                    'style' => [ 
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
+                ['Incidents P1 en cours - Aucun', 46, 'F',
+                    'style' => [
+                        'font' => [
+                            'bold' => true,
+                            'color' => ['rgb'=>'3366ff']
+                        ],
+                        'alignment' => [
+                            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                        ],
+                        'borders' => [
+                            'top' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'left' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'bottom' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ],
+                            'right' => [
+                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                            ]
+                        ]
+                    ]
+                ],
                 ['Numéro', 47, '']
             ],
             'width' => 'auto'
@@ -63,7 +303,7 @@ class Report {
 
     public function generate()
     {
-         $this->setCellData();
+        $this->setCellData();
         $this->processCellData();
         $this->writer->save('hello world.xlsx');
     }
@@ -80,6 +320,7 @@ class Report {
      */
     private function processCellData()
     {
+        
         foreach ($this->cellData as $columnValue=>$cellValues) {
 
             if ($cellValues['width'] === 'auto') {
@@ -89,10 +330,19 @@ class Report {
             }
 
             foreach ($cellValues['data'] as $key=>$data) {
+                
                 $this->activeSheet->setCellValue($columnValue . $data[1], $data[0]);
 
                 if ($data[2] !== '') {
                     $this->activeSheet->mergeCells($columnValue . $data[1] . ':' . $data[2] . $data[1]);
+                }
+
+                if (array_key_exists('style', $data)) {
+                    if ($data[2] !== '') {
+                        $this->activeSheet->getStyle($columnValue . $data[1] . ':' . $data[2] . $data[1])->applyFromArray($data['style']);
+                    } else {
+                        $this->activeSheet->getStyle($columnValue . $data[1])->applyFromArray($data['style']);
+                    }
                 }
 
             }
@@ -110,7 +360,7 @@ class Report {
         $days = $this->period->getDays();
         $count = 0;
 
-        foreach ($days as $date=>$day) {
+        foreach ($days as $date => $day) {
             $this->cellData[$this->cellMap[$count]] = [
                 'data' => [
                     ['Statut', 5, ''],
@@ -140,6 +390,13 @@ class Report {
                 ],
                 'width' => '50'
             ];
+
+            if (count($days) > 1) {
+                array_unshift(
+                    $this->cellData[$this->cellMap[$count]]['data'],
+                    [strtoupper($day), 4, ''] 
+                );
+            }
 
             $count++;
         }
