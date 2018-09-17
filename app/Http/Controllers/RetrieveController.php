@@ -11,8 +11,13 @@ class RetrieveController extends Controller
 
         // $period = \App\Period::getInstance();
         // dd($period->getDays());
+
+        // $server = new \App\ServerDataFormatter();
+        
         
         $report = new \App\Report();
         dd($report->generate());
+        
+        // dd($server->get());
     }
 }

@@ -19,7 +19,49 @@ class ServerDataFormatter {
                     $period->get()
                 ),
                 'backup' => $server->getBackupStatus()
-            ]
+            ],
+            'preprod' => [
+                'availability' => $this->getAvailability(
+                    env('IPLABEL_PPROD_MONITOR_ID'),
+                    $period->get()
+                ),
+                'backup' => $server->getBackupStatus()
+            ],
+            'int' => [
+                'availability' => $this->getAvailability(
+                    env('IPLABEL_INT_MONITOR_ID'),
+                    $period->get()
+                ),
+                'backup' => $server->getBackupStatus()
+            ],
+            'rec' => [
+                'availability' => $this->getAvailability(
+                    env('IPLABEL_REC_MONITOR_ID'),
+                    $period->get()
+                ),
+                'backup' => $server->getBackupStatus()
+            ],
+            'dev' => [
+                'availability' => $this->getAvailability(
+                    env('IPLABEL_DEV_MONITOR_ID'),
+                    $period->get()
+                ),
+                'backup' => $server->getBackupStatus()
+            ],
+            'form' => [
+                'availability' => $this->getAvailability(
+                    env('IPLABEL_FORM_MONITOR_ID'),
+                    $period->get()
+                ),
+                'backup' => $server->getBackupStatus()
+            ],
+            'bas' => [
+                'availability' => $this->getAvailability(
+                    env('IPLABEL_BAS_MONITOR_ID'),
+                    $period->get()
+                ),
+                'backup' => $server->getBackupStatus()
+            ],
         ];
     }
 
@@ -29,16 +71,14 @@ class ServerDataFormatter {
         $availability = [];
         for($i = 0; $i < count($dates) - 1; $i++) {
 
-            $startDate = $dates[$i] . ' 09:00:00';
-            $endDate = $dates[$i + 1] . ' 09:00:00';
+            $startDate = $dates[$i];
+            $endDate = $dates[$i + 1];
 
-            array_push($availability,
-                $server->getStatus(
-                    $monitorId,
-                    $startDate,
-                    $endDate
-                )
-            );
+            $availability[$endDate] = $server->getStatus(
+                                $monitorId,
+                                $startDate . ' 09:00:00',
+                                $endDate . ' 09:00:00'
+                            );
 
         }
 
