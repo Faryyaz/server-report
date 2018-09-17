@@ -13,24 +13,26 @@ use PhpOffice\PhpSpreadsheet\Style\Fill;
 class Report extends Template {
 
     private $writer;
-    // private $period;
 
     public function __construct()
     {
         parent::__construct();
 
         $this->writer = new Xlsx($this->spreadsheet);
-
-        // $this->period = parent::period;
     }
 
-    public function generate()
+    public function generate() : void
     {
         $this->setCellData();
         $this->processCellData();
         $this->writer->save('hello worldxx.xlsx');
     }
 
+    /**
+     * Dynamically Add data to the array cellData based on day's count
+     *
+     * @return array
+     */
     protected function setCellData() : array
     {
         parent::setCellData();

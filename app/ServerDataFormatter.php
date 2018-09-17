@@ -65,7 +65,14 @@ class ServerDataFormatter {
         ];
     }
 
-    private function getAvailability($monitorId, $dates) : array
+    /**
+     * Get the server availability based on input dates
+     *
+     * @param string $monitorId
+     * @param string $dates
+     * @return array
+     */
+    private function getAvailability(string $monitorId,string $dates) : array
     {
         $server = new Server();
         $availability = [];
@@ -85,4 +92,9 @@ class ServerDataFormatter {
         return $availability;
     }
     
+
+    private function getBatchImportDates()
+    {
+        
+    }
 }

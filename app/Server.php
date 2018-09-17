@@ -31,5 +31,23 @@ class Server {
         // backup server logic here
         return [];
     }
+
+    public function getBatchImportData($sysId, $date)
+    {
+        $url = env('SERVICENOW_API_URL') . '/now/table/sys_import_set_run';
+        $username = env('SERVICENOW_API_USERNAME');
+        $password = env('SERVICENOW_API_PASSWORD');
+        $query = [
+            'set.data_source' => $sysId,
+            'sysparm_limit' => '1'
+        ];
+        $serverData = new ServerData(
+            $url,
+            $username,
+            $password,
+            $query
+        );
+        return $serverData->get();
+    }
     
 }
