@@ -15,4 +15,6 @@
 //     return view('welcome');
 // });
 
-Route::resource('/', 'RetrieveController');
+Route::get('/', 'ReportController@index');
+Route::get('download', 'ReportController@download');
+

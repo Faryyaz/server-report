@@ -26,11 +26,19 @@ class Report extends Template {
         $this->writer = new Xlsx($this->spreadsheet);
     }
 
+    /**
+     * Generate the excel file
+     *
+     * @return void
+     */
     public function generate() : void
     {
         $this->setCellData();
         $this->processCellData();
-        $this->writer->save('hello worldxx.xlsx');
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="file.xlsx"');
+        // $writer->save("php://output");
+        $this->writer->save('php://output');
     }
 
     /**
