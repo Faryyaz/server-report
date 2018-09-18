@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Server;
 
 class RetrieveController extends Controller
 {
@@ -19,5 +20,8 @@ class RetrieveController extends Controller
         dd($report->generate());
         
         // dd($server->get());
+
+
+        // dd($server->getBatchImportDates(env('SERVICENOW_IMPORT_AIG_LOCATION_SYSID'), ['','18/09/2018']));
     }
 }

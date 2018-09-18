@@ -2,11 +2,20 @@
 
 namespace App;
 
+use Carbon\Carbon;
+
 //Get the data from the different servers
 class Server {
 
-    // get data of IPLABEL
-    public function getStatus(int $monitorId, string $startDate, string $endDate)
+    /**
+     * Return the status of the given $monitorId
+     *
+     * @param integer $monitorId
+     * @param string $startDate
+     * @param string $endDate
+     * @return void
+     */
+    public static function getStatus(int $monitorId, string $startDate, string $endDate)
     {
         $url = env('IPLABEL_API_URL') . 'Get_KPI/';
         $username = env('IPLABEL_API_USERNAME');
@@ -26,20 +35,29 @@ class Server {
         return $serverData->get()->Ipln_WS_REST_datametrie->Get_KPI->response;
     }
 
-    public function getBackupStatus()
+    public static function getBackupStatus()
     {
         // backup server logic here
         return [];
     }
 
-    public function getBatchImportData($sysId, $date)
+    /**
+     * return batchImports data from serviceNow
+     *
+     * @param string $sysId
+     * @param string $date
+     * @return void
+     */
+    public static function getBatchImportData(string $sysId, string $date)
     {
+        $date = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
         $url = env('SERVICENOW_API_URL') . '/now/table/sys_import_set_run';
         $username = env('SERVICENOW_API_USERNAME');
         $password = env('SERVICENOW_API_PASSWORD');
         $query = [
-            'set.data_source' => $sysId,
-            'sysparm_limit' => '1'
+            'sysparm_query' => "set.data_source={$sysId}^completedLIKE{$date}",
+            'sysparm_limit' => '1',
+            'sysparm_display_value' => 'true'
         ];
         $serverData = new ServerData(
             $url,
@@ -47,7 +65,7 @@ class Server {
             $password,
             $query
         );
-        return $serverData->get();
+        return $serverData->get()->result;
     }
     
 }

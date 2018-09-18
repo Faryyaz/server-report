@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use GuzzleHttp\Client;
 
 class ServerData {
@@ -19,7 +20,7 @@ class ServerData {
     }
 
     // get data from rest api
-    public function get(string $url = null)
+    public function get()
     {
         $client = new Client();
 

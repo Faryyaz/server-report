@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
@@ -15,7 +16,18 @@ class Template {
     protected $activeSheet;
     protected $period;
     protected $spreadsheet;
-    const titleStyleLeftAligned = [ 
+    
+    const GREEN_COLOR = '339966';
+    const RED_COLOR = 'ff0000';
+    const BLUE_COLOR = '3366ff';
+    const BLACK_COLOR = '000000';
+    const BORDER_THIN = [
+        'top' => 'BORDER_THIN', 
+        'left' => 'BORDER_THIN', 
+        'right' => 'BORDER_THIN',
+        'bottom' => 'BORDER_THIN'
+    ];
+    const TITLE_STYLE_LEFT_ALIGNED = [ 
         'font' => [
             'bold' => true,
             'color' => ['rgb'=>'3366ff']
@@ -45,28 +57,28 @@ class Template {
                 ['Bonjour,', 1, ''], // position 1( i.e. cell A1), no cell merging
                 ['Veuillez trouver ci-dessous la météo des services Total ITSM NEXT, statut à 09h.', 2, 'E'], // position 2 (A2),  merge cells A to E
                 ['Environnement PRODUCTION', 5, 'B',
-                    'style' => self::titleStyleLeftAligned
+                    'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
                 ['Environnement PRE-PRODUCTION ', 14, 'B',
-                    'style' => self::titleStyleLeftAligned
+                    'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
                 ['Environnement INTEGRATION', 18, 'B',
-                    'style' => self::titleStyleLeftAligned
+                    'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
                 ['Environnement RECETTE', 22, 'B',
-                    'style' => self::titleStyleLeftAligned
+                    'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
                 ['Environnement DEVELOPPEMENT', 26, 'B',
-                    'style' => self::titleStyleLeftAligned
+                    'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
                 ['Environnement RFM', 30, 'B',
-                    'style' => self::titleStyleLeftAligned
+                    'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
                 ['Environnement BAC-A-SABLE', 34, 'B',
-                    'style' => self::titleStyleLeftAligned
+                    'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
                 ['Incidents P1 en cours - Aucun', 38, 'F',
-                    'style' => self::titleStyleLeftAligned
+                    'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
                 ['Numéro', 39, ''],
                 ['', 11, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
@@ -284,10 +296,13 @@ class Template {
     }
 
     /**
-     * Return the style for title
+     * Return the style for text
      *
      * @param string $textAlignment HORIZONTAL_CENTER | HORIZONTAL_LEFT | HORIZONTAL_RIGHT
      * @param array $border ['top'=> 'BORDER_THICK', 'left'=> 'BORDER_THIN', 'right'=> 'BORDER_MEDIUM']
+     * @param string $fill color to fill cell
+     * @param array $fontBold true | false
+     * @param array $fontColor 
      * @return array
      */
     protected function getStyle(
@@ -298,13 +313,15 @@ class Template {
                             'right' => 'BORDER_MEDIUM',
                             'bottom' => 'BORDER_MEDIUM'
         ],
-        $fill = null
+        string $fill = null,
+        bool $fontBold = true,
+        string $fontColor = self::BLUE_COLOR
     ) : array
     {
         return [
             'font' => [
-                'bold' => true,
-                'color' => ['rgb'=>'3366ff']
+                'bold' => $fontBold,
+                'color' => ['rgb'=>$fontColor]
             ],
             'alignment' => [
                 'horizontal' => constant('\PhpOffice\PhpSpreadsheet\Style\Alignment::' . $textAlignment),
@@ -341,9 +358,9 @@ class Template {
     protected function getAvaStatusColor(int $availabilityValue) : string
     {
         if ( $availabilityValue >= 92 ) {
-            return '339966'; // green color
+            return self::GREEN_COLOR; // green color
         }
-        return 'ff0000'; // red color
+        return self::RED_COLOR; // red color
     }
 
 
