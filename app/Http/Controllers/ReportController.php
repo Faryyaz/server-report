@@ -16,6 +16,6 @@ class ReportController extends Controller
     {
         $report = new \App\Report();
         $report->generate();
-        return redirect()->to('/');
+        return redirect()->to('/index.php');
     }
 }

@@ -13,7 +13,7 @@
             <div class="container">
                 <h1>Météo des services Total ITSM NEXT</h1>      
                 <p>Veuillez cliquer sur le bouton pour télécharger le fichier</p>
-                <p><a href="/download" class="btn btn-primary btn-lg">Télécharger</a></p>
+                <p><a href="/index.php/download" class="btn btn-primary btn-lg">Télécharger</a></p>
             </div>
         </div>
     </body>

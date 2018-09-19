@@ -7,6 +7,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
+use Carbon\Carbon;
 
 /**
  * Generate the excel Report
@@ -33,12 +34,13 @@ class Report extends Template {
      */
     public function generate() : void
     {
+        $today = Carbon::now()->format('d_m_Y');
         $this->setCellData();
         $this->processCellData();
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="file.xlsx"');
-        // $writer->save("php://output");
+        header('Content-Disposition: attachment; filename="Meteo_' . $today . '.xlsx"');
         $this->writer->save('php://output');
+        exit();
     }
 
     /**

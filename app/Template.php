@@ -21,6 +21,8 @@ class Template {
     const RED_COLOR = 'ff0000';
     const BLUE_COLOR = '3366ff';
     const BLACK_COLOR = '000000';
+    const YELLOW_COLOR = 'ffc000';
+    const GREY_COLOR = 'a6a6a6';
     const BORDER_THIN = [
         'top' => 'BORDER_THIN', 
         'left' => 'BORDER_THIN', 
@@ -80,14 +82,19 @@ class Template {
                 ['Incidents P1 en cours - Aucun', 38, 'F',
                     'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
-                ['Numéro', 39, ''],
+                ['Numéro', 39, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]],
                 ['', 11, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
                 ['', 16, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
                 ['', 20, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
                 ['', 24, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
                 ['', 28, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
                 ['', 32, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['', 36, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]]
+                ['', 36, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 40, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]],
+                ['', 41, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]],
+                ['', 42, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]],
+                ['', 43, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]]
+
             ],
             'width' => 'auto'
         ],
@@ -113,13 +120,78 @@ class Template {
                 ['Sauvegarde', 32, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
                 ['Disponibilité de service', 35, ''],
                 ['Sauvegarde', 36, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['Détails', 39, 'F'],
-                ['', 40, 'F'],
-                ['', 41, 'F'],
-                ['', 42, 'F'],
-                ['', 43, 'F']
+                ['Détails', 39, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN]]]],
+                ['', 40, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN]]]],
+                ['', 41, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN]]]],
+                ['', 42, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN]]]],
+                ['', 43, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]]                
             ],
             'width' => '22'
+        ],
+        'I' => [
+            'data'=> [
+                ['', 2, '', 'style'=>[
+                        'borders'=>[
+                            'bottom'=>['borderStyle' =>Border::BORDER_THIN],
+                            'top'=>['borderStyle' =>Border::BORDER_THIN],
+                            'left'=>['borderStyle' =>Border::BORDER_THIN],
+                            'right'=>['borderStyle' =>Border::BORDER_THIN]
+                        ],
+                        'fill' => [
+                            'fillType' => Fill::FILL_SOLID,
+                            'color' => [
+                                'rgb' => self::GREY_COLOR,
+                            ]
+                        ],
+                    ]
+                ],
+                ['', 3, '', 'style'=>[
+                        'borders'=>[
+                            'bottom'=>['borderStyle' =>Border::BORDER_THIN],
+                            'top'=>['borderStyle' =>Border::BORDER_THIN],
+                            'left'=>['borderStyle' =>Border::BORDER_THIN],
+                            'right'=>['borderStyle' =>Border::BORDER_THIN]
+                        ],
+                        'fill' => [
+                            'fillType' => Fill::FILL_SOLID,
+                            'color' => [
+                                'rgb' => self::GREEN_COLOR,
+                            ]
+                        ],
+                    ]
+                ],
+                ['', 4, '', 'style'=>[
+                        'borders'=>[
+                            'bottom'=>['borderStyle' =>Border::BORDER_THIN],
+                            'top'=>['borderStyle' =>Border::BORDER_THIN],
+                            'left'=>['borderStyle' =>Border::BORDER_THIN],
+                            'right'=>['borderStyle' =>Border::BORDER_THIN]
+                        ],
+                        'fill' => [
+                            'fillType' => Fill::FILL_SOLID,
+                            'color' => [
+                                'rgb' => self::YELLOW_COLOR,
+                            ]
+                        ],
+                    ]
+                ],
+                ['', 5, '', 'style'=>[
+                        'borders'=>[
+                            'bottom'=>['borderStyle' =>Border::BORDER_THIN],
+                            'top'=>['borderStyle' =>Border::BORDER_THIN],
+                            'left'=>['borderStyle' =>Border::BORDER_THIN],
+                            'right'=>['borderStyle' =>Border::BORDER_THIN]
+                        ],
+                        'fill' => [
+                            'fillType' => Fill::FILL_SOLID,
+                            'color' => [
+                                'rgb' => self::RED_COLOR,
+                            ]
+                        ],
+                    ]
+                ],
+                ['N/A', 6, '']
+            ]
         ]
     ];
 
@@ -211,7 +283,19 @@ class Template {
                     ],
                     ['Statut', 34, '',
                         'style' => $this->getStyle('HORIZONTAL_CENTER')
-                    ]
+                    ],
+                    ['', 6, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 7, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 8, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 9, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 10, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 11, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 16, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 20, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 24, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 28, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 32, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
+                    ['', 36, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', self::BORDER_THIN)],
                 ],
                 'width' => '22'
             ];
@@ -274,11 +358,11 @@ class Template {
         }
 
         $incidentTableData = [
-            ['', 39, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM'])],
-            ['', 40, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM'])],
-            ['', 41, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM'])],
-            ['', 42, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM'])],
-            ['', 43, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM'])]
+            ['', 39, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
+            ['', 40, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
+            ['', 41, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
+            ['', 42, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
+            ['', 43, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_MEDIUM'])]
         ];
 
         if (isset($this->cellData['F'])) {
