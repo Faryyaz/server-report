@@ -79,9 +79,6 @@ class Template {
                 ['Environnement BAC-A-SABLE', 34, 'B',
                     'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
-                // ['Incidents P1 en cours - Aucun', 38, 'F',
-                //     'style' => self::TITLE_STYLE_LEFT_ALIGNED
-                // ],
                 ['Numéro', 39, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
                 ['', 11, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
                 ['', 16, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],

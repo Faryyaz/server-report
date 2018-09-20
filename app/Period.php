@@ -37,11 +37,11 @@ class Period {
             return $this->dates;
         }
 
-        if ($today->isWeekday() && !$this->isPublicHoliday($today->toDateString())) {
+        if ($today->isWeekday() && !$this->isPublicHoliday($today->format('d/m/Y'))) {
 
             switch ( $today->dayOfWeek ) {
                 case Carbon::MONDAY:
-                $this->dates = $this->getWeekendAndHolidayDates($today);
+                $this->dates = $this->getWeekendAndHolidayDates($today->format('d/m/Y'));
                 break;
 
                 case Carbon::TUESDAY:
@@ -50,7 +50,7 @@ class Period {
                         $today->format('d/m/Y')
                     ];
 
-                    if ($this->isPublicHoliday($yesterday)) {
+                    if ($this->isPublicHoliday($yesterday->format('d/m/Y'))) {
                         $this->dates = $this->getWeekendAndHolidayDates($yesterday);
                     }
 
@@ -62,7 +62,7 @@ class Period {
                         $today->format('d/m/Y')
                     ];
 
-                    if ($this->isPublicHoliday($yesterday)) {
+                    if ($this->isPublicHoliday($yesterday->format('d/m/Y'))) {
                         array_unshift($this->dates, $yesterday->subDays(1)->format('d/m/Y')); 
                     }
 
@@ -115,11 +115,12 @@ class Period {
      * @param string $date
      * @return boolean
      */
-    private function isPublicHoliday(string $date) : bool
+    public function isPublicHoliday(string $date) : bool
     {
-        // if ( PublicHolidays::where('date', $date->toDateString())->exists() ) {
-        //     return true;
-        // }
+        $formattedDate = Carbon::createFromFormat('d/m/Y', $date)->format('Y-m-d');
+        if ( PublicHolidays::where('date', $formattedDate)->exists() ) {
+            return true;
+        }
         return false;
     }
 
