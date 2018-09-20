@@ -145,7 +145,15 @@ class Template {
                         ],
                     ]
                 ],
-                ['', 3, '', 'style'=>[
+                ['J', 3, '', 'style'=>[
+                        'font' => [
+                            'bold' => false,
+                            'color' => ['rgb'=>self::BLACK_COLOR],
+                            'name' => 'Wingdings'
+                        ],
+                        'alignment' => [
+                            'horizontal' => Alignment::HORIZONTAL_CENTER,
+                        ],
                         'borders'=>[
                             'bottom'=>['borderStyle' =>Border::BORDER_THIN],
                             'top'=>['borderStyle' =>Border::BORDER_THIN],
@@ -160,7 +168,15 @@ class Template {
                         ],
                     ]
                 ],
-                ['', 4, '', 'style'=>[
+                ['K', 4, '', 'style'=>[
+                        'font' => [
+                            'bold' => false,
+                            'color' => ['rgb'=>self::BLACK_COLOR],
+                            'name' => 'Wingdings'
+                        ],
+                        'alignment' => [
+                            'horizontal' => Alignment::HORIZONTAL_CENTER,
+                        ],
                         'borders'=>[
                             'bottom'=>['borderStyle' =>Border::BORDER_THIN],
                             'top'=>['borderStyle' =>Border::BORDER_THIN],
@@ -175,7 +191,15 @@ class Template {
                         ],
                     ]
                 ],
-                ['', 5, '', 'style'=>[
+                ['L', 5, '', 'style'=>[
+                        'font' => [
+                            'bold' => false,
+                            'color' => ['rgb'=>self::BLACK_COLOR],
+                            'name' => 'Wingdings'
+                        ],
+                        'alignment' => [
+                            'horizontal' => Alignment::HORIZONTAL_CENTER,
+                        ],
                         'borders'=>[
                             'bottom'=>['borderStyle' =>Border::BORDER_THIN],
                             'top'=>['borderStyle' =>Border::BORDER_THIN],
@@ -399,13 +423,15 @@ class Template {
         ],
         string $fill = null,
         bool $fontBold = true,
-        string $fontColor = self::BLUE_COLOR
+        string $fontColor = self::BLUE_COLOR,
+        string $fontName = 'Calibri'
     ) : array
     {
         return [
             'font' => [
                 'bold' => $fontBold,
-                'color' => ['rgb'=>$fontColor]
+                'color' => ['rgb'=>$fontColor],
+                'name' => $fontName
             ],
             'alignment' => [
                 'horizontal' => constant('\PhpOffice\PhpSpreadsheet\Style\Alignment::' . $textAlignment),
@@ -441,7 +467,7 @@ class Template {
      */
     protected function getAvaStatusColor(int $availabilityValue) : string
     {
-        if ( $availabilityValue >= 92 ) {
+        if ( $availabilityValue >= env('IPLABEL_SLA_AVAILABILITY_THRESHOLD') ) {
             return self::GREEN_COLOR; // green color
         }
         return self::RED_COLOR; // red color

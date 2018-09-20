@@ -63,12 +63,25 @@ class Report extends Template {
             $countPos = 0;
 
             foreach($this->serverData as $datum) {
+
+                $status_color = $this->getAvaStatusColor($datum['availability'][$date]->SLA_AVAILABILITY);
+                $text = '';
+                $fontName = 'Wingdings';
+                if ($status_color === self::GREEN_COLOR) {
+                    $text = 'J';
+                } else {
+                    $text = 'L';
+                }
+
                 array_push($this->cellData[$this->cellMap[$count]]['data'], [
-                    '', $serverAvaPos[$countPos], '', 'style' => 
+                    $text, $serverAvaPos[$countPos], '', 'style' => 
                     $this->getStyle(
                         'HORIZONTAL_CENTER', 
                         self::BORDER_THIN, 
-                        $this->getAvaStatusColor($datum['availability'][$date]->SLA_AVAILABILITY)
+                        $status_color,
+                        false,
+                        self::BLACK_COLOR,
+                        $fontName
                     )
                 ]);
                 $countPos++;
