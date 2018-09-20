@@ -41,7 +41,7 @@ class Period {
 
             switch ( $today->dayOfWeek ) {
                 case Carbon::MONDAY:
-                $this->dates = $this->getWeekendAndHolidayDates($today->format('d/m/Y'));
+                $this->dates = $this->getWeekendAndHolidayDates($today);
                 break;
 
                 case Carbon::TUESDAY:
