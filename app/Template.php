@@ -79,22 +79,32 @@ class Template {
                 ['Environnement BAC-A-SABLE', 34, 'B',
                     'style' => self::TITLE_STYLE_LEFT_ALIGNED
                 ],
-                ['Incidents P1 en cours - Aucun', 38, 'F',
-                    'style' => self::TITLE_STYLE_LEFT_ALIGNED
-                ],
-                ['Numéro', 39, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]],
-                ['', 11, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['', 16, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['', 20, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['', 24, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['', 28, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['', 32, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['', 36, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['', 40, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]],
-                ['', 41, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]],
-                ['', 42, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]],
-                ['', 43, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'right'=>['borderStyle' =>Border::BORDER_THIN]]]]
-
+                // ['Incidents P1 en cours - Aucun', 38, 'F',
+                //     'style' => self::TITLE_STYLE_LEFT_ALIGNED
+                // ],
+                ['Numéro', 39, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 11, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 16, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 20, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 24, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 28, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 32, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 36, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 40, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 41, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 42, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN], 'right'=>['borderStyle' =>Border::BORDER_THIN], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 43, '','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM], 'right'=>['borderStyle' =>Border::BORDER_THIN], 'left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 6, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 7, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 8, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 9, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 10, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 15, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 19, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 23, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 27, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 31, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
+                ['', 35, '','style'=>['borders'=>['left'=>['borderStyle' =>Border::BORDER_MEDIUM]]]]
             ],
             'width' => 'auto'
         ],
@@ -119,12 +129,7 @@ class Template {
                 ['Disponibilité de service', 31, ''],
                 ['Sauvegarde', 32, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
                 ['Disponibilité de service', 35, ''],
-                ['Sauvegarde', 36, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]],
-                ['Détails', 39, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN]]]],
-                ['', 40, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN]]]],
-                ['', 41, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN]]]],
-                ['', 42, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_THIN]]]],
-                ['', 43, 'F','style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]]                
+                ['Sauvegarde', 36, '', 'style'=>['borders'=>['bottom'=>['borderStyle' =>Border::BORDER_MEDIUM]]]]                
             ],
             'width' => '22'
         ],
@@ -283,6 +288,8 @@ class Template {
         $days = $this->period->getDays();
         $count = 0;
 
+        $endingCell = 'D';
+
         foreach ($days as $date => $day) {
 
             $this->cellData[$this->cellMap[$count]] = [
@@ -378,26 +385,31 @@ class Template {
                 );
             }
 
+            $endingCell = $this->cellMap[$count + 1];
+
             $count++;
         }
 
         $incidentTableData = [
-            ['', 39, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
-            ['', 40, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
-            ['', 41, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
-            ['', 42, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
-            ['', 43, '', 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_MEDIUM'])]
+            ['Détails', 39, $endingCell, 'style' => $this->getStyle('HORIZONTAL_LEFT', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'], null, false, self::BLACK_COLOR)],
+            ['', 40, $endingCell, 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
+            ['', 41, $endingCell, 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
+            ['', 42, $endingCell, 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_THIN'])],
+            ['', 43, $endingCell, 'style' => $this->getStyle('HORIZONTAL_CENTER', ['right'=>'BORDER_MEDIUM', 'bottom'=>'BORDER_MEDIUM'])]
         ];
 
-        if (isset($this->cellData['F'])) {
+        $incidentTableHeader = ['Incidents P1 en cours - Aucun', 38, $endingCell,
+            'style' => self::TITLE_STYLE_LEFT_ALIGNED
+        ];
+
+        if (isset($this->cellData['B'])) {
             foreach($incidentTableData as $tableData) {
-                array_push($this->cellData['F']['data'], $tableData);
+                array_push($this->cellData['B']['data'], $tableData);
             }
-        } else {
-            // set the border for incident p1 table
-            $this->cellData['F'] = [
-                'data' => $incidentTableData
-            ];
+        }
+
+        if (isset($this->cellData['A'])) {
+            array_push($this->cellData['A']['data'], $incidentTableHeader);
         }
 
         return $this->cellData;
